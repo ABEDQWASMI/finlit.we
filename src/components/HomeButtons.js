@@ -18,7 +18,7 @@ const HomeButtons = ({ setCurrentView }) => {
                 className="bg-[#C736D9] text-black w-[40%] p-3 rounded-2xl flex flex-col items-start justify-between"
                 onClick={() => setCurrentView('voice')}
             >
-                <img src={getAssetUrl(micIcon)} alt="Mic Icon" className="w-8 h-8" />
+                <img src={micIcon} alt="Mic Icon" className="w-8 h-8" />
                 <span className="text-xs font-medium">Talk</span>
             </button>
             <div className='flex-1 w-[60%] gap-2 flex flex-col'>
@@ -26,13 +26,13 @@ const HomeButtons = ({ setCurrentView }) => {
                     className="bg-[#BCD8FA] text-black ps-3 py-2 rounded-2xl flex flex-col gap-1.5 items-start justify-between"
                     onClick={() => setCurrentView('text')}
                 >
-                    <img src={getAssetUrl(chatIcon)} alt="Chat Icon" className="w-8 h-8" />
+                    <img src={chatIcon} alt="Chat Icon" className="w-8 h-8" />
                     <span className="text-xs font-medium">Chat</span>
                 </button>
                 <button
                     className="bg-[#9AED66] text-black ps-3 py-2 rounded-2xl flex flex-col gap-1.5 items-start justify-between"
                 >
-                    <img src={getAssetUrl(gameIcon)} alt="Game Icon" className="w-8 h-8" />
+                    <img src={gameIcon} alt="Game Icon" className="w-8 h-8" />
                     <span className="text-xs font-medium">Play a game</span>
                 </button>
             </div>

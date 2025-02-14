@@ -15,8 +15,7 @@ module.exports = (env, argv) => {
       libraryTarget: 'umd',
       umdNamedDefine: true,
       globalObject: 'this',
-      publicPath: publicPath,
-      assetModuleFilename: 'assets/[name][ext]'
+      publicPath: publicPath
     },
     module: {
       rules: [
@@ -36,34 +35,23 @@ module.exports = (env, argv) => {
         },
         {
           test: /\.svg$/,
-          use: [
-            {
-              loader: '@svgr/webpack',
-              options: {
-                svgo: false,
-                titleProp: true
-              }
-            },
-            {
-              loader: 'file-loader',
-              options: {
-                name: 'assets/[name].[ext]'
-              }
-            }
-          ]
+          type: 'asset/resource',
+          generator: {
+            filename: 'images/[name][ext]'
+          }
         },
         {
           test: /\.(png|jpg|jpeg|gif)$/i,
           type: 'asset/resource',
           generator: {
-            filename: 'assets/[name][ext]'
+            filename: 'images/[name][ext]'
           }
         },
         {
           test: /\.json$/,
           type: 'asset/resource',
           generator: {
-            filename: 'assets/[name][ext]'
+            filename: 'images/[name][ext]'
           }
         }
       ]
@@ -76,11 +64,8 @@ module.exports = (env, argv) => {
       new CopyWebpackPlugin({
         patterns: [
           {
-            from: 'src/assets',
-            to: 'assets',
-            globOptions: {
-              ignore: ['**/*.svg']
-            }
+            from: 'src/assets/images',
+            to: 'images'
           }
         ]
       })
