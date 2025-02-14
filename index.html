@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FinLit Widget Demo</title><script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script><script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script><style>body {
+            margin: 0;
+            padding: 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .widget-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 400px;
+            margin: 0 auto;
+            height: 600px;
+        }</style></head><body><div class="container"><h1>FinLit Widget Demo</h1><div class="widget-container"><div id="finlit-widget"></div></div></div><script src="widget.js"></script><script>// Initialize the widget after it's loaded
+        window.addEventListener('load', function() {
+            if (window.FinLitWidget) {
+                window.FinLitWidget.init('#finlit-widget');
+            }
+        });</script><script defer="defer" src="https://abedqwasmi.github.io/finlit-widget/widget.js"></script></body></html>
