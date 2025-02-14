@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -9,7 +10,8 @@ module.exports = {
     library: 'FinLitWidget',
     libraryTarget: 'umd',
     umdNamedDefine: true,
-    globalObject: 'this'
+    globalObject: 'this',
+    publicPath: '/finlit-widget/'
   },
   module: {
     rules: [
@@ -26,6 +28,27 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader', 'postcss-loader']
+      },
+      {
+        test: /\.svg$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        }
+      },
+      {
+        test: /\.(png|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        }
+      },
+      {
+        test: /\.json$/,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]'
+        }
       }
     ]
   },
@@ -33,6 +56,14 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './public/index.html',
       inject: 'body'
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: 'src/assets/images',
+          to: 'images'
+        }
+      ]
     })
   ],
   devServer: {
