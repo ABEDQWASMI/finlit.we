@@ -1,13 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="utf-8" />
-    <title>Your App</title>
+    <title>FinLit Widget Test</title>
+    <!-- Include React and ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
 </head>
 <body>
     <h1>Testing FinLit Widget</h1>
-    <script src="https://leapthelimit.github.io/finlit-widget/js/main.3f31f8e3.js"></script>
-    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- Add the widget container -->
+    <div id="finlit-widget"></div>
+    
+    <!-- Include the widget -->
+    <script src="https://leapthelimit.github.io/finlit.we/widget.js"></script>
+    
+    <!-- Initialize the widget -->
+    <script>
+        window.addEventListener('load', function() {
+            if (window.FinLitWidget) {
+                window.FinLitWidget.init('#finlit-widget');
+            }
+        });
+    </script>
 </body>
 </html>
