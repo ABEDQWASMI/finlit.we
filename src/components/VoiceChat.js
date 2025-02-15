@@ -235,64 +235,52 @@ const VoiceChat = ({ setCurrentView }) => {
     };
 
     return (
-        <>
-            <Header setCurrentView={setCurrentView} />
-            <div className="bg-white h-full w-full flex flex-col items-center justify-start text-black relative overflow-hidden">
-                <div className='h-[45%] w-full flex justify-center items-center'>
-                    {renderAvatar()}
+        <div className="flex flex-col h-full bg-white text-black">
+            <div className='mb-3 border-b border-[#C736D9]/20'>
+                <PoweredBy />
+            </div>
+            <div className="flex-1 flex flex-col items-center justify-center px-4 space-y-6">
+                <div className="relative">
+                    <img 
+                        src={startIcon} 
+                        alt="AI Avatar" 
+                        className="w-24 h-24 border-2 border-[#C736D9] rounded-full p-2"
+                    />
+                    <div className={`absolute -bottom-1 -right-1 w-8 h-8 rounded-full flex items-center justify-center
+                        ${isListening ? 'bg-[#C736D9]' : 'bg-gray-200 border border-[#C736D9]/30'}`}>
+                        <MicIcon size={16} className={`text-white ${isListening ? '' : 'text-[#C736D9]'}`} />
+                    </div>
                 </div>
-
-                <div className='h-[45%] flex items-start justify-center px-4'>
-                    <p className="text-2xl font-medium text-center max-w-[80%]">
-                        {botResponse.split(' ').map((word, index) => (
-                            <span key={index} className='text-black'>{word} </span>
-                        ))}
+                
+                <div className="text-center space-y-2">
+                    <h2 className="text-lg font-semibold">
+                        {isListening ? "I'm listening..." : "Press the mic to start"}
+                    </h2>
+                    <p className="text-sm text-gray-600">
+                        {isListening ? "Speak clearly into your microphone" : "Tap the microphone to begin your conversation"}
                     </p>
                 </div>
 
-                <div className="absolute bottom-14 left-0 right-0 flex justify-between items-center px-4">
-                    <div className="flex space-x-4">
-                        <AvatarSelector 
-                            currentAvatar={currentAvatar}
-                            onAvatarChange={setCurrentAvatar}
-                        />
+                <button
+                    onClick={startListening}
+                    className={`px-6 py-3 rounded-full font-medium transition-all
+                        ${isListening 
+                            ? 'bg-red-500 text-white hover:bg-red-600' 
+                            : 'bg-white text-[#C736D9] border-2 border-[#C736D9] hover:bg-[#C736D9] hover:text-white'
+                        }`}
+                >
+                    {isListening ? 'Stop' : 'Start'}
+                </button>
+
+                {botResponse && (
+                    <div className="w-full max-w-md">
+                        <div className="bg-[#E9E9EB] p-4 rounded-lg border border-[#C736D9]/20">
+                            <p className="text-sm">{botResponse}</p>
+                        </div>
                     </div>
-                    <button 
-                        onClick={startListening} 
-                        className="p-4 rounded-full" 
-                        style={{ background: `url(${micBg})`, backgroundSize: 'cover' }}
-                    >
-                        {speaking ? <AudioLines size={30} /> : <MicIcon size={30} />}
-                    </button>
-                    <div className="relative">
-                        <button 
-                            onClick={toggleLanguages} 
-                            className="p-2 rounded-full bg-[#272626]"
-                        >
-                            <Globe size={24} />
-                        </button>
-                        {showLanguages && (
-                            <div className="absolute bottom-full right-1 mb-2 flex flex-col space-y-2">
-                                {['עב', 'عر', 'EN'].map((lang) => (
-                                    <button
-                                        key={lang}
-                                        onClick={() => {
-                                            setSelectedLanguage(lang);
-                                            setShowLanguages(false);
-                                        }}
-                                        className={`p-2 rounded-full text-xs flex items-center justify-center ${
-                                            selectedLanguage === lang ? 'bg-purple-600' : 'bg-[#272626]'
-                                        }`}
-                                    >
-                                        {lang}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                </div>
+                )}
             </div>
-        </>
+        </div>
     );
 };
 

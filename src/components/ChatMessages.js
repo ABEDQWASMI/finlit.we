@@ -184,7 +184,7 @@ const ChatMessages = ({ pastConversation = [], setCurrentView, isHistory = false
     return (
         <div className="flex flex-col h-full bg-white text-black">
             {isHistory && <Header setCurrentView={setCurrentView} />}
-            <div className='mb-3'>
+            <div className='mb-3 border-b border-[#C736D9]/20'>
                 <PoweredBy />
             </div>
             
@@ -192,11 +192,11 @@ const ChatMessages = ({ pastConversation = [], setCurrentView, isHistory = false
             <div className="flex-1 overflow-y-auto scrollbar-none w-full relative pb-16">
                 {/* Suggestions section */}
                 {showSuggestions && suggestions.length > 0 && (
-                    <div className="absolute bottom-full left-0 right-0 bg-gray-100 rounded-t-lg p-2 border-t border-gray-200">
+                    <div className="absolute bottom-full left-0 right-0 bg-white rounded-t-lg p-2 border border-[#C736D9]/30">
                         {suggestions.map((suggestion, index) => (
                             <button
                                 key={index}
-                                className="w-full text-left px-3 py-2 hover:bg-gray-200 rounded"
+                                className="w-full text-left px-3 py-2 hover:bg-[#C736D9]/5 rounded text-black transition-colors"
                                 onClick={() => handleSuggestionClick(suggestion)}
                             >
                                 {suggestion}
@@ -211,13 +211,13 @@ const ChatMessages = ({ pastConversation = [], setCurrentView, isHistory = false
                         <div key={index} className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
                             {message.sender === 'Finlix' && (
                                 <div className="w-10 me-2">
-                                    <img src={startIcon} alt='startIcon' />
+                                    <img src={startIcon} alt='startIcon' className="border border-[#C736D9]/20 rounded-full p-1" />
                                 </div>
                             )}
                             <div className={`rounded-lg px-3 py-2 max-w-[75%] font-medium ${
                                 message.sender === 'user' 
-                                    ? 'bg-[#C736D9] text-white rounded-br-none' 
-                                    : 'bg-[#E9E9EB] text-black my-1 rounded-bl-none'
+                                    ? 'bg-[#C736D9] text-white rounded-br-none shadow-lg' 
+                                    : 'bg-[#E9E9EB] text-black my-1 rounded-bl-none border border-[#C736D9]/20'
                             }`}>
                                 <p className="text-sm">{message.text}</p>
                             </div>
@@ -234,7 +234,7 @@ const ChatMessages = ({ pastConversation = [], setCurrentView, isHistory = false
                         {suggestions.map((suggestion, index) => (
                             <button
                                 key={index}
-                                className="w-full text-left px-4 py-2 bg-gray-100 hover:bg-gray-200 
+                                className="w-full text-left px-4 py-2 bg-white border border-[#C736D9]/30 hover:bg-[#C736D9]/5 
                                          rounded-lg text-black text-sm transition-colors"
                                 onClick={() => handleSuggestionClick(suggestion)}
                             >
@@ -243,12 +243,12 @@ const ChatMessages = ({ pastConversation = [], setCurrentView, isHistory = false
                         ))}
                     </div>
                 )}
-                <div className="bg-white rounded-xl p-1 flex items-center">
+                <div className="bg-white rounded-xl p-1 flex items-center border border-[#C736D9]/30 shadow-lg">
                     <button className="p-2" onClick={startSpeechRecognition}>
                         {listening ? (
                             <Mic color='#C736D9' />
                         ) : (
-                            <Mic color='#828282' />
+                            <Mic color='#C736D9' className="opacity-50" />
                         )}
                     </button>
                     <input
@@ -257,11 +257,11 @@ const ChatMessages = ({ pastConversation = [], setCurrentView, isHistory = false
                         onChange={(e) => setInputMessage(e.target.value)}
                         onKeyPress={handleKeyPress}
                         placeholder="Message..."
-                        className="bg-transparent outline-none p-1 text-[#828282] text-sm flex-1"
+                        className="bg-transparent outline-none p-1 text-black placeholder-gray-400 text-sm flex-1"
                     />
                     {inputMessage.trim() && (
-                        <button className="bg-black rounded-full p-1" onClick={handleSend}>
-                            <ArrowUp />
+                        <button className="bg-[#C736D9] rounded-full p-1 hover:bg-[#C736D9]/90 transition-colors" onClick={handleSend}>
+                            <ArrowUp className="text-white" />
                         </button>
                     )}
                 </div>

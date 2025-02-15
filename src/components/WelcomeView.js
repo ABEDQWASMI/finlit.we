@@ -3,38 +3,23 @@ import startIcon from '../assets/images/start.svg';
 import LogoPoweredBy from './LogoPoweredBy';
 
 const WelcomeView = ({ setCurrentView }) => (
-    <div className="h-full flex flex-col justify-between">
-        <LogoPoweredBy />
-        
-        <div className="flex-1 flex flex-col items-center justify-center -mt-8">
-            <div className="text-center mb-8">
-                <p className="text-black text-base mb-4">
-                    Your AI Finance Buddy
-                </p>
-                <h1 className="text-5xl font-bold tracking-tight">
-                    Hey there!<br />
-                    I'm Finlix!
-                </h1>
-                <p className="text-black text-sm">
-                    Beta
-                </p>
-            </div>
-            
-            <div className="flex-1 flex items-center justify-center">
-                <img
-                    src={startIcon}
-                    alt="loading"
-                    className="h-40 w-auto"
-                />
-            </div>
+    <div className="flex flex-col h-full bg-white text-black">
+        <div className='mb-3 border-b border-[#C736D9]/20'>
+            <LogoPoweredBy />
         </div>
-
-        <div className="pb-4 px-4">
+        <div className="flex-1 flex flex-col items-center justify-center px-6 space-y-8">
+            <img src={startIcon} alt="AI Avatar" className="w-24 h-24 border-2 border-[#C736D9] rounded-full p-2" />
+            <div className="text-center space-y-4">
+                <h1 className="text-2xl font-bold text-[#C736D9]">AI Finance Buddy</h1>
+                <p className="text-gray-600">Your personal AI assistant for financial education</p>
+            </div>
             <button
-                className="bg-[#C736D9] text-white py-3 rounded-xl text-base font-medium w-full"
-                onClick={() => setCurrentView('home')}
+                onClick={() => setCurrentView('chat')}
+                className="px-8 py-3 bg-[#C736D9] text-white rounded-full font-medium 
+                         hover:bg-[#C736D9]/90 transition-colors shadow-lg 
+                         hover:shadow-[#C736D9]/20 hover:shadow-xl"
             >
-                Get Started
+                Start Chat
             </button>
         </div>
     </div>
