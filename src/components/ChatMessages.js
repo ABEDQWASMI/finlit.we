@@ -182,21 +182,21 @@ const ChatMessages = ({ pastConversation = [], setCurrentView, isHistory = false
     };
 
     return (
-        <div className="flex flex-col h-full bg-black text-white">
+        <div className="flex flex-col h-full bg-white text-black">
             {isHistory && <Header setCurrentView={setCurrentView} />}
             <div className='mb-3'>
                 <PoweredBy />
             </div>
             
             {/* Main chat container with proper spacing */}
-            <div className="flex-1 overflow-y-auto scrollbar-none w-full relative pb-16"> {/* Added pb-16 for input bar space */}
+            <div className="flex-1 overflow-y-auto scrollbar-none w-full relative pb-16">
                 {/* Suggestions section */}
                 {showSuggestions && suggestions.length > 0 && (
-                    <div className="absolute bottom-full left-0 right-0 bg-[#272626] rounded-t-lg p-2 border-t border-[#363636]">
+                    <div className="absolute bottom-full left-0 right-0 bg-gray-100 rounded-t-lg p-2 border-t border-gray-200">
                         {suggestions.map((suggestion, index) => (
                             <button
                                 key={index}
-                                className="w-full text-left px-3 py-2 hover:bg-[#363636] rounded"
+                                className="w-full text-left px-3 py-2 hover:bg-gray-200 rounded"
                                 onClick={() => handleSuggestionClick(suggestion)}
                             >
                                 {suggestion}
@@ -234,8 +234,8 @@ const ChatMessages = ({ pastConversation = [], setCurrentView, isHistory = false
                         {suggestions.map((suggestion, index) => (
                             <button
                                 key={index}
-                                className="w-full text-left px-4 py-2 bg-[#272626] hover:bg-[#363636] 
-                                         rounded-lg text-white text-sm transition-colors"
+                                className="w-full text-left px-4 py-2 bg-gray-100 hover:bg-gray-200 
+                                         rounded-lg text-black text-sm transition-colors"
                                 onClick={() => handleSuggestionClick(suggestion)}
                             >
                                 {suggestion}

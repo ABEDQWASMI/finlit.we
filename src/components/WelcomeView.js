@@ -8,14 +8,14 @@ const WelcomeView = ({ setCurrentView }) => (
         
         <div className="flex-1 flex flex-col items-center justify-center -mt-8">
             <div className="text-center mb-8">
-                <p className="text-white text-base mb-4">
+                <p className="text-black text-base mb-4">
                     Your AI Finance Buddy
                 </p>
                 <h1 className="text-5xl font-bold tracking-tight">
                     Hey there!<br />
                     I'm Finlix!
                 </h1>
-                <p className="text-white text-sm">
+                <p className="text-black text-sm">
                     Beta
                 </p>
             </div>
@@ -31,7 +31,7 @@ const WelcomeView = ({ setCurrentView }) => (
 
         <div className="pb-4 px-4">
             <button
-                className="bg-white text-black py-3 rounded-xl text-base font-medium w-full"
+                className="bg-[#C736D9] text-white py-3 rounded-xl text-base font-medium w-full"
                 onClick={() => setCurrentView('home')}
             >
                 Get Started

@@ -85,14 +85,14 @@ export default function History({ setCurrentView }) {
     return (
         <div>
             <div className="flex justify-between items-center mb-4">
-                <h2 className="text-white text-md font-medium">History</h2>
-                <button onClick={() => setCurrentView('history_list')} className="text-gray-400 text-sm">See all</button>
+                <h2 className="text-black text-md font-medium">History</h2>
+                <button onClick={() => setCurrentView('history_list')} className="text-gray-600 text-sm">See all</button>
             </div>
             <div className="space-y-2">
                 {historyItems.slice(0, 2).map((item, index) => (
-                    <div key={index} className="bg-zinc-800 p-3 rounded-lg flex items-center justify-start space-x-3">
+                    <div key={index} className="bg-gray-100 p-3 rounded-lg flex items-center justify-start space-x-3">
                         {getIcon(item.type)}
-                        <span className="text-gray-300 text-xs">
+                        <span className="text-gray-700 text-xs">
                             {item.userMessage.substring(0, 50)}...
                         </span>
                     </div>

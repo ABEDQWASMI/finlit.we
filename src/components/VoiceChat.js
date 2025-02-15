@@ -237,7 +237,7 @@ const VoiceChat = ({ setCurrentView }) => {
     return (
         <>
             <Header setCurrentView={setCurrentView} />
-            <div className="bg-black h-full w-full flex flex-col items-center justify-start text-white relative overflow-hidden">
+            <div className="bg-white h-full w-full flex flex-col items-center justify-start text-black relative overflow-hidden">
                 <div className='h-[45%] w-full flex justify-center items-center'>
                     {renderAvatar()}
                 </div>
@@ -245,7 +245,7 @@ const VoiceChat = ({ setCurrentView }) => {
                 <div className='h-[45%] flex items-start justify-center px-4'>
                     <p className="text-2xl font-medium text-center max-w-[80%]">
                         {botResponse.split(' ').map((word, index) => (
-                            <span key={index} className='text-white'>{word} </span>
+                            <span key={index} className='text-black'>{word} </span>
                         ))}
                     </p>
                 </div>
