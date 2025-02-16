@@ -1,32 +1,4 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"><title>FinLit Widget Demo</title><script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script><script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script><style>body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f5f5f5;
-        }
-        #finlit-widget {
-            width: 100%;
-            max-width: 400px;
-            height: 600px;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        @media (max-width: 480px) {
-            body {
-                background-color: white;
-            }
-            #finlit-widget {
-                max-width: none;
-                height: 100vh;
-                border-radius: 0;
-                box-shadow: none;
-            }
-        }</style></head><body><div id="finlit-widget"></div><script src="https://leapthelimit.github.io/finlit.we/widget.js"></script><script>window.addEventListener('load', function() {
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FinLit Widget Demo</title><script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script><script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script></head><body><div id="finlit-widget"></div><script src="https://leapthelimit.github.io/finlit.we/widget.js"></script><script>window.addEventListener('load', function() {
             if (window.FinLitWidget) {
                 window.FinLitWidget.init('#finlit-widget');
             }
